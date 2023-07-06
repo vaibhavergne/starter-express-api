@@ -64,7 +64,8 @@ if(data==""||data==null){conInp.placeholder="Null data please reload";conInp.sty
 data.sort(function(a,b){return (a.name.common>b.name.common?1:-1); });
 for(let i=0;i<data.length;i++)countryNames[i]=data[i].name.common;
 
-for(let i=0;i<countryNames.length;i++){let o=document.createElement("option");o.innerText=countryNames[i];conNames.appendChild(o); }
+for(let i=0;i<countryNames.length;i++){ConArray[i]=countryNames[i];//let o=document.createElement("option");o.innerText=countryNames[i];conNames.appendChild(o); 
+                                      }
 
 conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return; };
 let conI=matchTestArray(countryNames,conInp.value);
