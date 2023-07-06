@@ -7,7 +7,7 @@
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
 #conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }#conNameHead{text-align: center;padding: 3px;color:#018f9e;}
-#conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }
+#conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }.useData:disabled{background:#111;cursor: not-allowed;}.lstP{text-align:center;background:#000;color:#fff;width:90%;cursor:pointer;}
 </style>
 </header>
     <body>
@@ -68,7 +68,7 @@ for(let i=0;i<countryNames.length;i++){ConArray[i]=countryNames[i];//let o=docum
                                       }
 
 conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return; };
-let conI=matchTestArray(countryNames,conInp.value);
+let conI=matchTestArray(countryNames,conInp.value);conInp.value="";conNamesAll.textContent="";
 
 if(conI==-1){mapViewCon.countryName="";flagViewCon.countryFlag="";coatArms.countryName="";coatArms.countryFlag="";conNameHead.innerText="Select Country";currency.title=null;currency.description=null;languages.title=null;languages.description=null;
 geography.title=null;geography.description=null;basicInfo.title=null;basicInfo.description=null;
