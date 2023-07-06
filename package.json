@@ -8,6 +8,10 @@
     "https": "^1.0.0",
     "path": "^0.12.7"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyclic-software/starter-express-api.git"
+  },
   "devDependencies": {},
   "scripts": {
     "start": "node app.js"
