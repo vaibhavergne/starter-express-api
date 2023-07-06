@@ -6,11 +6,13 @@
 #conLabel{margin-top:15px;display:inline-block;vertical-align: middle;width:calc(17% - 15px);text-align: center; }
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
-#conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }#conNameHead{text-align: center;padding: 3px;color:#018f9e;}</style> 
-#conNames{background:#333;color:#fff; }
+#conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }#conNameHead{text-align: center;padding: 3px;color:#018f9e;}
+#conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }
+</style>
 </header>
     <body>
 <div style="height:50px;width:100%;background:#000;color:#fff;padding:5px;position:fixed;top:0px"><span id="conLabel">Country Name : </span><input type="text"id="conInp"placeholder="Wait for load..."list="conNames"value=""disabled style="cursor:wait;"><span id="conSearch"><img src="/imgs/search.png" style="height:20px;width:20px;margin-top:4px"></span></div>
+<div style="overflow-y: scroll"id="conNamesAllPr"><div type="text" id="conNamesAll"class="useData lstP" ></div></div></div>
 
 <datalist id="conNames"></datalist>
 
@@ -22,7 +24,11 @@
 <div></div>
 
 
-<script>conInp.value="";conInp.setAttribute("disabled","");
+<script>
+var ConArray=[];
+conInp.oninput=function(){conNamesAll.textContent="";if(this.value===""||this.value===" ")return;for(let i=0;i<ConArray.length;i++){console.log(ConArray[i]);if((ConArray[i].toLocaleLowerCase().indexOf(this.value.toLocaleLowerCase()))>=0){let o=document.createElement("div");o.innerText=ConArray[i];conNamesAll.appendChild(o);o.onclick=function(){conInp.value=this.innerText;conSearch.onclick(); } }; }conNamesAll.scrollTop = conNamesAll.scrollHeight; }    
+    
+conInp.value="";conInp.setAttribute("disabled","");
 var flagViewCon=document.createElement("flag-view");
 horiz=document.createElement("hr");horiz.setAttribute("sec","");
 Container.append(flagViewCon,horiz);
