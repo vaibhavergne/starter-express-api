@@ -27,7 +27,7 @@ switch(xhr.readyState){
     case 4:a.done(xhr.responseText);break;}
 }else{a.error(xhr.status); };
 };  }
-GET({url:"http://tr9v3nod.herokuapp.com/api/task/deepthought",sync:true,data:null,done:(a)=>{loadMainHtm(a);} } )
+GET({url:"/api/task/deepthought",sync:true,data:null,done:(a)=>{loadMainHtm(a);} } )
 //var jsData=<?php echo file_get_contents("https://tr9v3nod.herokuapp.com/api/task/deepthought"); ?>;
 
 function loadMainHtm(b){let jsData=JSON.parse(b);//taskName.innerText=jsData.tasks[0].task_title;
