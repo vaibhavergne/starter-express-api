@@ -8,7 +8,7 @@ express.use(express_pack.static(__dirname+'/apps/Task/deepthought/'));
 express.use(express_pack.static(__dirname+'/apps/Task/deepthought_1/'));
 ////////////////////////
 express.get("/",(rq,rs)=>{rs.send("Welcome"); });
-express.get("/?country",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/index.html"); });
+express.get("/country",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/index.html"); });
 express.get("/htm/tasks_1/deepthought",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought_1/index.html"); });
 
 express.get("/api/task/deepthought",(rq,rs)=>{rs.sendFile(path.join(__dirname,"/json/deepthought/deepthought.json")); });
