@@ -58,7 +58,7 @@ for(let i=0;i<data.length;i++)countryNames[i]=data[i].name.common;
 
 for(let i=0;i<countryNames.length;i++){let o=document.createElement("option");o.innerText=countryNames[i];conNames.appendChild(o); }
 
-conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return; };
+conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return;alert(conInp.vlue); };
 let conI=matchTestArray(countryNames,conInp.value);
 
 if(conI==-1){mapViewCon.countryName="";flagViewCon.countryFlag="";coatArms.countryName="";coatArms.countryFlag="";conNameHead.innerText="Select Country";currency.title=null;currency.description=null;languages.title=null;languages.description=null;
