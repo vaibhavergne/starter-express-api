@@ -67,23 +67,23 @@ if(conI==-1){mapViewCon.countryName="";flagViewCon.countryFlag="";coatArms.count
 geography.title=null;geography.description=null;basicInfo.title=null;basicInfo.description=null;
 alert("Ent proper country name");return; };
 let conName=data[conI].name.common;
-conNameHead.innerText="About "+conInp.value;
+conNameHead.innerText="About :: ";
 mapViewCon.countryName=conName;
-flagViewCon.title="Flag of "+conName;
+flagViewCon.title="Flag :: ";
 flagViewCon.countryFlag=data[conI].flags.png;
-coatArms.title="Coat of Arms of "+conName;
+coatArms.title="Coat of Arms :: ";
 coatArms.countryFlag=data[conI].coatOfArms.png;
-currency.title="Currency of "+conName;
+currency.title="Currency :: ";
 let curr=Object.keys(data[conI].currencies);currency.description="";
 for(i=0;i<curr.length;i++)currency.description+=data[conI].currencies[curr[i]].name+" :: "+data[conI].currencies[curr[i]].symbol+"<br>";
-languages.title="Languages in "+conName;
+languages.title="Languages :: ";
 let lan=Object.keys(data[conI].languages);languages.description="";
 for(i=0;i<lan.length;i++)languages.description+=data[conI].languages[lan[i]]+"<br>";
 
-geography.title="Geography of "+conName;
+geography.title="Geography :: ";
 geography.description=conName+" is located in "+data[conI].continents[0]+" continent. Having latitude of "+data[conI].latlng[0]+" & longitude of "+data[conI].latlng[1]+". & area is "+data[conI].area+" km<sup>2</sup>";
 
-basicInfo.title="Basic Information About "+conName;
+basicInfo.title="Basic Information ::  ";
 basicInfo.description=(data[conI].name.official!=""||data[conI].name.official!=undefined?"Official name of "+conName+" is "+data[conI].name.official+". ":"")+" Timezone of "+conName+" is "+data[conI].timezones[0]+". & it's capital is "+data[conI].capital[0]+". Population of "+conName+" is "+data[conI].population+". Starting week day of country is "+data[conI].startOfWeek+". Country code is "+data[conI].idd.root+data[conI].idd.suffixes[0]+".";
 
 //alert(data[conI].name.common);
