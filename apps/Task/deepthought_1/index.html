@@ -6,6 +6,7 @@
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
 #conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }#conNameHead{text-align: center;padding: 3px;color:#018f9e;}</style> 
+#conNames{background:#333;color:#fff; }
 </header>
     <body>
 <div style="height:50px;width:100%;background:#000;color:#fff;padding:5px;position:fixed;top:0px"><span id="conLabel">Country Name : </span><input type="text"id="conInp"placeholder="Wait for load..."list="conNames"value=""disabled style="cursor:wait;"><span id="conSearch"><img src="/imgs/search.png" style="height:20px;width:20px;margin-top:4px"></span></div>
@@ -58,7 +59,7 @@ for(let i=0;i<data.length;i++)countryNames[i]=data[i].name.common;
 
 for(let i=0;i<countryNames.length;i++){let o=document.createElement("option");o.innerText=countryNames[i];conNames.appendChild(o); }
 
-conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return;alert(conInp.vlue); };
+conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return; };
 let conI=matchTestArray(countryNames,conInp.value);
 
 if(conI==-1){mapViewCon.countryName="";flagViewCon.countryFlag="";coatArms.countryName="";coatArms.countryFlag="";conNameHead.innerText="Select Country";currency.title=null;currency.description=null;languages.title=null;languages.description=null;
