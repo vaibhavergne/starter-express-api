@@ -6,7 +6,11 @@
 #conLabel{margin-top:15px;display:inline-block;vertical-align: middle;width:calc(17% - 15px);text-align: center; }
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
-#conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }#conNameHead{text-align: center;padding: 3px;color:#018f9e;}
+#conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }
+    #conNameHead{text-align: center;padding: 3px;color:#018f9e;}
+    #conNamesAllPr{position: absolute;overflow-y: scroll;height: 100%;width:100%;border-bottom: none;border-top: none;z-index: 99;height:50vh;-ms-overflow-style: none;scrollbar-width: none;
+  /*position the autocomplete items to be the same width as the container:*/
+top: 100%;left: 0;right: 0; }
 #conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }
 
 </style>
