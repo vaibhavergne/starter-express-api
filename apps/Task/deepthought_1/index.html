@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <header><script src="/js/tasks/deepthought_1/component.js"></script>
-<style>body{margin:0;padding:0}hr[sec]{border:outset 3px #777}
+<style>body{margin:0;padding:0}hr[sec]{border:outset 1px #fff}
 #conLabel{margin-top:15px;display:inline-block;vertical-align: middle;width:calc(17% - 15px);text-align: center; }
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
@@ -70,20 +70,20 @@ if(conI==-1){mapViewCon.countryName="";flagViewCon.countryFlag="";coatArms.count
 geography.title=null;geography.description=null;basicInfo.title=null;basicInfo.description=null;
 alert("Ent proper country name");return; };
 let conName=data[conI].name.common;
-conNameHead.innerText="About "+conInp.value;
+conNameHead.innerText="About "+conName;
 mapViewCon.countryName=conName;
-flagViewCon.title="Flag of "+conName;
+flagViewCon.title="Flag :: ";
 flagViewCon.countryFlag=data[conI].flags.png;
-coatArms.title="Coat of Arms of "+conName;
+coatArms.title="Coat of Arms :: ";
 coatArms.countryFlag=data[conI].coatOfArms.png;
-currency.title="Currency of "+conName;
+currency.title="Currency :: ";
 let curr=Object.keys(data[conI].currencies);currency.description="";
 for(i=0;i<curr.length;i++)currency.description+=data[conI].currencies[curr[i]].name+" :: "+data[conI].currencies[curr[i]].symbol+"<br>";
-languages.title="Languages in "+conName;
+languages.title="Languages :: ";
 let lan=Object.keys(data[conI].languages);languages.description="";
 for(i=0;i<lan.length;i++)languages.description+=data[conI].languages[lan[i]]+"<br>";
 
-geography.title="Geography of "+conName;
+geography.title="Geography :: ";
 geography.description=conName+" is located in "+data[conI].continents[0]+" continent. Having latitude of "+data[conI].latlng[0]+" & longitude of "+data[conI].latlng[1]+". & area is "+data[conI].area+" km<sup>2</sup>";
 
 basicInfo.title="Basic Information About "+conName;
