@@ -2,18 +2,12 @@
 <html>
 <header><script src="/js/tasks/deepthought_1/component.js"></script>
 <style>body{margin:0;padding:0}hr[sec]{border:outset 1px #fff}
-#conSearch:focus, input:focus{outline: none; }
 #conLabel{margin-top:15px;display:inline-block;vertical-align: middle;width:calc(17% - 15px);text-align: center; }
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
-#conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }
-    #conNameHead{text-align: center;padding: 3px;color:#018f9e;}
-    #conNamesAllPr{position: absolute;overflow-y: scroll;height: 100%;width:100%;border-bottom: none;border-top: none;z-index: 99;height:50vh;-ms-overflow-style: none;scrollbar-width: none;
+#conSearch{display:inline-block;position:absolute;width:70px;height:30px;right:24px;top:14px;background-color:rgb(23, 66, 255);border-radius:15px;text-align: center;cursor:pointer; }#conNameHead{text-align: center;padding: 3px;color:#018f9e;}.useData:disabled{background:#111;cursor: not-allowed;}.lstP{text-align:center;background:#000;color:#fff;width:90%;cursor:pointer;}#conNamesAllPr{position: absolute;overflow-y: scroll;height: 100%;width:100%;border-bottom: none;border-top: none;z-index: 99;height:50vh;-ms-overflow-style: none;scrollbar-width: none;
   /*position the autocomplete items to be the same width as the container:*/
-top: 100%;left: 0;right: 0; }
-#conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }
-
-</style>
+top: 100%;left: 0;right: 0; }#conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }</style> 
 </header>
     <body>
 <div style="height:50px;width:100%;background:#000;color:#fff;padding:5px;position:fixed;top:0px"><span id="conLabel">Country Name : </span><input type="text"id="conInp"placeholder="Wait for load..."list="conNames"value=""disabled style="cursor:wait;"><span id="conSearch"><img src="/imgs/search.png" style="height:20px;width:20px;margin-top:4px"></span></div>
