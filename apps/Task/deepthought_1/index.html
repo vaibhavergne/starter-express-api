@@ -25,7 +25,7 @@ top: 100%;left: 0;right: 0; }#conNamesAll{width:100%; }#conNamesAll div{padding:
 
 <script>
 var ConArray=[];
-conInp.oninput=function(){conNamesAll.textContent="";console.clear();if(this.value===""||this.value===" ")return;for(let i=0;i<ConArray.length;i++){console.log(ConArray[i]);
+conInp.oninput=function(){alert(conNamesAll);conNamesAll.textContent="";console.clear();if(this.value===""||this.value===" ")return;for(let i=0;i<ConArray.length;i++){console.log(ConArray[i]);
 if((ConArray[i].toLocaleLowerCase().indexOf(this.value.toLocaleLowerCase()))>=0){let o=document.createElement("div");o.innerText=ConArray[i];conNamesAll.appendChild(o);
 o.onclick=function(){conInp.value=this.innerText;conSearch.onclick(); } }; } }    
     
