@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <header><script src="/js/tasks/deepthought_1/component.js"></script>
-<style>body{margin:0;padding:0}hr[sec]{border:outset 1px #fff}
+<style>body{margin:0;padding:0}hr[sec]{border:outset 3px #777}
 #conLabel{margin-top:15px;display:inline-block;vertical-align: middle;width:calc(17% - 15px);text-align: center; }
 #conInp::placeholder{color:#eee; }
 #conInp{height:30px;margin-top:7px;vertical-align:middle;background:#555;color:#fff;width:80%;border-radius:15px;padding-left:30px;border:inset #555 1px; }
@@ -10,22 +10,21 @@
 top: 100%;left: 0;right: 0; }#conNamesAll{width:100%; }#conNamesAll div{padding:3px; }#conNamesAll div:hover{background:#555;  }#conNamesAllPr::-webkit-scrollbar {display: none; }</style> 
 </header>
     <body>
-<div style="height:50px;width:100%;background:#000;color:#fff;padding:5px;position:fixed;top:0px"><span id="conLabel">Country Name : </span><input type="text"id="conInp"placeholder="Wait for load..."list="conNames"value=""disabled style="cursor:wait;"><span id="conSearch"><img src="/imgs/search.png" style="height:20px;width:20px;margin-top:4px"></span></div>
+<div style="height:50px;width:100%;background:#000;color:#fff;padding:5px;position:fixed;top:0px"><span id="conLabel">Country Name : </span><input type="text"id="conInp"placeholder="Wait for load..."list="conNames"value=""disabled style="cursor:wait;"><span id="conSearch"><img src="/imgs/search.png" style="height:20px;width:20px;margin-top:4px"></span>
 <div style="overflow-y: scroll"id="conNamesAllPr"><div type="text" id="conNamesAll"class="useData lstP" ></div></div></div>
 
-<datalist id="conNames"></datalist>
-
 <div id="Container"style="margin-top:60px">
-    <a href="https://github.com/shubham333v/task/tree/main/apps/Task/deepthought_1">git link</a>
     <h1 id="conNameHead">Select Country</h1><hr sec>
 </div>
 
-<div></div>
+<div>
+
+</div>
 
 
 <script>var ConArray=[];
-conInp.oninput=function(){conNamesAll.textContent="";if(this.value===""||this.value===" ")return;for(let i=0;i<ConArray.length;i++){console.log(ConArray[i]);if((ConArray[i].toLocaleLowerCase().indexOf(this.value.toLocaleLowerCase()))>=0){let o=document.createElement("div");o.innerText=ConArray[i];conNamesAll.appendChild(o);o.onclick=function(){conInp.value=this.innerText;conSearch.onclick(); } }; } } 
-    
+conInp.oninput=function(){conNamesAll.textContent="";if(this.value===""||this.value===" ")return;for(let i=0;i<ConArray.length;i++){console.log(ConArray[i]);if((ConArray[i].toLocaleLowerCase().indexOf(this.value.toLocaleLowerCase()))>=0){let o=document.createElement("div");o.innerText=ConArray[i];conNamesAll.appendChild(o);o.onclick=function(){conInp.value=this.innerText;conSearch.onclick(); } }; } }
+
 conInp.value="";conInp.setAttribute("disabled","");
 var flagViewCon=document.createElement("flag-view");
 horiz=document.createElement("hr");horiz.setAttribute("sec","");
@@ -50,7 +49,6 @@ horiz=document.createElement("hr");horiz.setAttribute("sec","");
 Container.append(basicInfo,horiz);
 
 //document.body.append(horiz);
-
 var xhr=new XMLHttpRequest();
 xhr.onload=function(){var data=JSON.parse(this.responseText);
 let countryNames=[];    
@@ -62,8 +60,8 @@ if(data==""||data==null){conInp.placeholder="Null data please reload";conInp.sty
 data.sort(function(a,b){return (a.name.common>b.name.common?1:-1); });
 for(let i=0;i<data.length;i++)countryNames[i]=data[i].name.common;
 
-for(let i=0;i<countryNames.length;i++){ConArray[i]=countryNames[i];//let o=document.createElement("option");o.innerText=countryNames[i];conNames.appendChild(o); 
-                                      }
+for(let i=0;i<countryNames.length;i++){ConArray[i]=countryNames[i];//let o=document.createElement("option");o.innerText=countryNames[i];conNames.appendChild(o);
+ }
 
 conSearch.onclick=function(){if(conInp.value==""){alert("Ent country name");return; };
 let conI=matchTestArray(countryNames,conInp.value);conInp.value="";conNamesAll.textContent="";
@@ -72,23 +70,23 @@ if(conI==-1){mapViewCon.countryName="";flagViewCon.countryFlag="";coatArms.count
 geography.title=null;geography.description=null;basicInfo.title=null;basicInfo.description=null;
 alert("Ent proper country name");return; };
 let conName=data[conI].name.common;
-conNameHead.innerText="About :: ";
+conNameHead.innerText="About "+conInp.value;
 mapViewCon.countryName=conName;
-flagViewCon.title="Flag :: ";
+flagViewCon.title="Flag of "+conName;
 flagViewCon.countryFlag=data[conI].flags.png;
-coatArms.title="Coat of Arms :: ";
+coatArms.title="Coat of Arms of "+conName;
 coatArms.countryFlag=data[conI].coatOfArms.png;
-currency.title="Currency :: ";
+currency.title="Currency of "+conName;
 let curr=Object.keys(data[conI].currencies);currency.description="";
 for(i=0;i<curr.length;i++)currency.description+=data[conI].currencies[curr[i]].name+" :: "+data[conI].currencies[curr[i]].symbol+"<br>";
-languages.title="Languages :: ";
+languages.title="Languages in "+conName;
 let lan=Object.keys(data[conI].languages);languages.description="";
 for(i=0;i<lan.length;i++)languages.description+=data[conI].languages[lan[i]]+"<br>";
 
-geography.title="Geography :: ";
+geography.title="Geography of "+conName;
 geography.description=conName+" is located in "+data[conI].continents[0]+" continent. Having latitude of "+data[conI].latlng[0]+" & longitude of "+data[conI].latlng[1]+". & area is "+data[conI].area+" km<sup>2</sup>";
 
-basicInfo.title="Basic Information ::  ";
+basicInfo.title="Basic Information About "+conName;
 basicInfo.description=(data[conI].name.official!=""||data[conI].name.official!=undefined?"Official name of "+conName+" is "+data[conI].name.official+". ":"")+" Timezone of "+conName+" is "+data[conI].timezones[0]+". & it's capital is "+data[conI].capital[0]+". Population of "+conName+" is "+data[conI].population+". Starting week day of country is "+data[conI].startOfWeek+". Country code is "+data[conI].idd.root+data[conI].idd.suffixes[0]+".";
 
 //alert(data[conI].name.common);
