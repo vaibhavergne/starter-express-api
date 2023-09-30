@@ -18,7 +18,7 @@ express.get("/Front",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/ind
 express.get("/country",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought_1/index.html"); });
 express.get("/motmon",(rq,rs)=>{rs.sendFile(__dirname+"/apps/motmon/index.html"); });
 express.get("/motParam",(rq,rs)=>{rs.send(JSON.stringify(motParam)); });
-express.get("/motParam",(rq,rs)=>{rs.send(JSON.stringify(motParam)); });
+express.get("/motParam/test",(rq,rs)=>{rs.sendFile(__dirname+"/apps/motmon/test.html"); });
 
 express.get("/api/task/deepthought",(rq,rs)=>{rs.sendFile(__dirname+"/json/deepthought/deepthought.json"); });
 express.get("/js/tasks/deepthought/component.js",(rq,rs)=>{rs.sendFile(path.join(__dirname,"/apps/Task/deepthought/ind.js")); });
