@@ -11,7 +11,7 @@ var motParam={"tem":1,"cur":2,"vol":3,"spd":4};
 app.use(express.json());
 app.use(express.static(__dirname+'/apps/Task/deepthought/'));
 app.use(express.static(__dirname+'/apps/Task/deepthought_1/'));
-app.use(express.static(path.join(__dirname+"/apps/motmon/images/", 'images')))
+app.use("/images",express.static(path.join(__dirname+"/apps/motmon/images")))
 ////////////////////////
 app.get("/",(rq,rs)=>{rs.send("Welcome"); });
 app.get("/Front",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/index.html"); });
