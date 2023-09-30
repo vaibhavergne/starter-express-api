@@ -8,6 +8,7 @@ const path=require("path");
 ////////////////////////
 var motParam={"tem":1,"cur":2,"vol":3,"spd":4};
 ////////////////////////
+app.use(express.json());
 app.use(express.static(__dirname+'/apps/Task/deepthought/'));
 app.use(express.static(__dirname+'/apps/Task/deepthought_1/'));
 ////////////////////////
