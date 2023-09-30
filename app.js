@@ -29,7 +29,7 @@ app.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.join(_
 //////////////////////////
 //////////////////////////
 app.post("/motParam",(rq,rs)=>{let bd=rq.body;
-if(bd.hasOwnProperty("tem"))motParam.tem=bd.tem;
-                              res.end(bd.hasOwnProperty("tem")+""); });
+//if(bd.hasOwnProperty("tem"))motParam.tem=bd.tem;
+                              res.end(motParam.tem); });
 
 app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
