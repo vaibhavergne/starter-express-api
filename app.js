@@ -29,6 +29,6 @@ express.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.jo
 //////////////////////////
 //////////////////////////
 //////////////////////////
-express.post("/motParam",(rq,rs)=>{let body=req.body;rs.end(motParam.tem+""); });
+express.post("/motParam",(rq,rs)=>{let body=req.body;rs.end(motParam["tem"]); });
 
 express.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
