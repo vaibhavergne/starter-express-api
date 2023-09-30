@@ -31,6 +31,6 @@ express.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.jo
 //////////////////////////
 express.post("/motParam",(rq,rs)=>{let body=rq.body;
 
-                                   rs.end(body.tem+""); });
+                                   rs.end(JSON.stringify(body)); });
 
 express.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
