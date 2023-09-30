@@ -30,10 +30,10 @@ express.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.jo
 //////////////////////////
 //////////////////////////
 express.post("/motParams",(rq,rs)=>{let body=rq.body;
-  if(body.hasOwnProperty("tem"))motParam.tem=body.tem;
-  if(body.hasOwnProperty("cur"))motParam.cur=body.cur;
-  if(body.hasOwnProperty("vol"))motParam.vol=body.vol;
-  if(body.hasOwnProperty("spd"))motParam.spd=body.spd;
+motParam.tem=body.tem;
+motParam.cur=body.cur;
+motParam.vol=body.vol;
+motParam.spd=body.spd;
   rs.end("OK"); });
 
 express.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
