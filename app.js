@@ -28,8 +28,6 @@ app.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.join(_
 //////////////////////////
 //////////////////////////
 //////////////////////////
-app.post("/motParam",(rq,rs)=>{const bd=rq.body;
-
-                                   rs.end(bd); });
+app.post("/motParam",(rq,rs)=>{rs.end("OK"); });
 
 app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
