@@ -18,6 +18,7 @@ express.get("/Front",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/ind
 express.get("/country",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought_1/index.html"); });
 express.get("/motmon",(rq,rs)=>{rs.sendFile(__dirname+"/apps/motmon/index.html"); });
 express.get("/motParam",(rq,rs)=>{rs.send(JSON.stringify(motParam)); });
+express.get("/motParam",(rq,rs)=>{rs.send(JSON.stringify(motParam)); });
 
 express.get("/api/task/deepthought",(rq,rs)=>{rs.sendFile(__dirname+"/json/deepthought/deepthought.json"); });
 express.get("/js/tasks/deepthought/component.js",(rq,rs)=>{rs.sendFile(path.join(__dirname,"/apps/Task/deepthought/ind.js")); });
@@ -32,6 +33,7 @@ express.post("/motParam",(rq,rs)=>{let body=rq.body;
   if(body.hasOwnProperty("tem"))motParam.tem=body.tem;
   if(body.hasOwnProperty("cur"))motParam.cur=body.cur;
   if(body.hasOwnProperty("vol"))motParam.vol=body.vol;
-  if(body.hasOwnProperty("spd"))motParam.spd=body.spd; });
+  if(body.hasOwnProperty("spd"))motParam.spd=body.spd;
+  rs.end("OK"); });
 
 express.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
