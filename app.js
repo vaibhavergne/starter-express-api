@@ -4,7 +4,7 @@ const express=express_pack();
 const path=require("path");
 
 const CyclicDb = require("@cyclic.sh/dynamodb");
-const db = CyclicDb("creepy-jewelry-rayCyclicDB");
+const db = CyclicDb("tr9v3db");
 
 const animals = db.collection("animals");
 
