@@ -3,10 +3,6 @@ const express_pack=require("express");
 //https://github.com/shubham333v/starter-express-api/blob/main/app.js
 const express=express_pack();
 const path=require("path");
-express.use(express.json())
-
-
-
 
 
 ////////////////////////
