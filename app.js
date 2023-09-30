@@ -30,7 +30,7 @@ express.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.jo
 //////////////////////////
 //////////////////////////
 express.post("/motParam",(rq,rs)=>{let body=rq.body;
-if(body.hasOwnProperty("tem"))motParam.tem=body.tem;
-                                   rs.end("OK"); });
+
+                                   rs.end(body.tem+""); });
 
 express.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
