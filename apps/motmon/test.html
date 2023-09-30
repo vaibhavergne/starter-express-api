@@ -50,7 +50,7 @@ var xhr = new XMLHttpRequest();
 xhr.open("POST", "/motParam", true);
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.send(JSON.stringify(Object.fromEntries(formData)));
-xhr.onreadystatechange = function () {
+xhr.onreadystatechange = function () {alert();
 if (this.readyState != 4) return;
 if (this.status == 200) {alert(this.responseText);  } }; }
 
