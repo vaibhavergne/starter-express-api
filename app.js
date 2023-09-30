@@ -4,6 +4,11 @@ const express_pack=require("express");
 const express=express_pack();
 const path=require("path");
 
+
+
+
+////////////////////////
+let motParam={"temp":1,"curr":2,"volt":3,"spd":4};
 ////////////////////////
 express.use(express_pack.static(__dirname+'/apps/Task/deepthought/'));
 express.use(express_pack.static(__dirname+'/apps/Task/deepthought_1/'));
