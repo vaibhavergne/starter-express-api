@@ -2,7 +2,6 @@
 const express_pack=require("express");
 const express=express_pack();
 const path=require("path");
-const CyclicDB = require('@cyclic.sh/dynamodb');
 
 
 ////////////////////////
