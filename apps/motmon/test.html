@@ -51,9 +51,8 @@ xhr.open("POST", "/motParam", true);
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.send(JSON.stringify(Object.fromEntries(formData)));
 console.log(JSON.stringify(Object.fromEntries(formData)));
-xhr.onreadystatechange = function () {alert();
-if (this.readyState != 4) return;
-if (this.status == 200) {alert(this.responseText);  } }; }
+xhr.onreadystatechange=function (){if(this.readyState!=4)return;
+if(this.status==200){console.log(this.responseText);  } }; }
 
  form.addEventListener('submit', submitform);
     </script>
