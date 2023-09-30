@@ -3,11 +3,7 @@ const express_pack=require("express");
 const express=express_pack();
 const path=require("path");
 
-const CyclicDb = require("@cyclic.sh/dynamodb");
-console.log(CyclicDb);
-const db = CyclicDb("tr9v3db");
 
-const animals = db.collection("animals");
 
 ////////////////////////
 express.use(express_pack.static(__dirname+'/apps/Task/deepthought/'));
