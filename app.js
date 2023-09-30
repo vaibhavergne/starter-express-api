@@ -3,7 +3,17 @@ const express_pack=require("express");
 const express=express_pack();
 const path=require("path");
 const cycDB = require('cyclic-dynamodb');
-const db = CyclicDb("creepy-jewelry-rayCyclicDB")
+const db = CyclicDb("creepy-jewelry-rayCyclicDB");
+
+const animals = db.collection("animals");
+let leo = await animals.set("leo", {
+type: "cat",
+color: "orange"
+})
+
+// get an item at key "leo" from collection animals
+let item = await animals.get("leo")
+console.log(item)
 
 ////////////////////////
 express.use(express_pack.static(__dirname+'/apps/Task/deepthought/'));
