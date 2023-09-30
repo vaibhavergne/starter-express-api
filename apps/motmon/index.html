@@ -230,7 +230,7 @@ if(curV>4){ovRes.style.display="block";uvRes.style.display="none";volStt.innerTe
 ckResemp();
 } };
 
-xhr.open('POST','datFetch.php', true);
+xhr.open('GET','/motParam', true);
 xhr.send(dat); }
 readDat();
 setInterval(readDat,1000);
