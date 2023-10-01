@@ -6,7 +6,7 @@ const path=require("path");
 
 
 ////////////////////////
-var motParam={"tem":1,"cur":2,"vol":3,"spd":4};
+var motParam={"tem":0,"cur":0,"vol":0,"spd":0};
 ////////////////////////
 app.use(express.json());
 app.use(express.static(__dirname+'/apps/Task/deepthought/'));
