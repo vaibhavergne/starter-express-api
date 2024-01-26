@@ -16,6 +16,7 @@ app.use("/img", express.static(__dirname+"/apps/taksh/img"));
 app.use("/css", express.static(__dirname+"/apps/taksh/css"));
 app.use("/js", express.static(__dirname+"/apps/taksh/js"));
 app.use("/lib", express.static(__dirname+"/apps/taksh/lib"));
+app.use(express.static(__dirname+"/apps/taksh/"));
 ////////////////////////
 app.get("/",(rq,rs)=>{rs.send("Welcome"); });
 app.get("/Front",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/index.html"); });
