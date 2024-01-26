@@ -9,8 +9,8 @@ const path=require("path");
 var motParam={"tem":0,"cur":0,"vol":0,"spd":0};
 ////////////////////////
 app.use(express.json());
-app.use(express.static(__dirname+'/apps/Task/deepthought/'));
-app.use(express.static(__dirname+'/apps/Task/deepthought_1/'));
+//app.use(express.static(__dirname+'/apps/Task/deepthought/'));
+//app.use(express.static(__dirname+'/apps/Task/deepthought_1/'));
 app.use("/images",express.static(path.join(__dirname+"/apps/motmon/images")));
 app.use(express.static(__dirname+"/apps/taksh/"));
 ////////////////////////
