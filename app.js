@@ -19,6 +19,7 @@ app.get("/country",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought_1/ind
 app.get("/motmon",(rq,rs)=>{rs.sendFile(__dirname+"/apps/motmon/index.html"); });
 app.get("/motParam",(rq,rs)=>{rs.send(JSON.stringify(motParam)); });
 app.get("/motmon/test",(rq,rs)=>{rs.sendFile(__dirname+"/apps/motmon/test.html"); });
+app.get("/taksh",(rq,rs)=>{rs.sendFile(__dirname+"/apps/taksh/"); });
 
 app.get("/api/task/deepthought",(rq,rs)=>{rs.sendFile(__dirname+"/json/deepthought/deepthought.json"); });
 app.get("/js/tasks/deepthought/component.js",(rq,rs)=>{rs.sendFile(path.join(__dirname,"/apps/Task/deepthought/ind.js")); });
