@@ -12,6 +12,10 @@ app.use(express.json());
 app.use(express.static(__dirname+'/apps/Task/deepthought/'));
 app.use(express.static(__dirname+'/apps/Task/deepthought_1/'));
 app.use("/images",express.static(path.join(__dirname+"/apps/motmon/images")))
+app.use("img", express.static(__dirname+"/apps/taksh/css"));
+app.use("css", express.static(__dirname+"/apps/taksh/img"));
+app.use("js", express.static(__dirname+"/apps/taksh/js"));
+app.use("lib", express.static(__dirname+"/apps/taksh/lib"));
 ////////////////////////
 app.get("/",(rq,rs)=>{rs.send("Welcome"); });
 app.get("/Front",(rq,rs)=>{rs.sendFile(__dirname+"/apps/Task/deepthought/index.html"); });
