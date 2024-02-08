@@ -7,8 +7,15 @@ const path=require("path");
 
 ////////////////////////
 var motParam={"tem":0,"cur":0,"vol":0,"spd":0};
+var PARAMATCOP={"angle":0,"torque":0 };
 ////////////////////////
 app.use(express.json());
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    next();
+  });
 //app.use(express.static(__dirname+'/apps/Task/deepthought/'));
 //app.use(express.static(__dirname+'/apps/Task/deepthought_1/'));
 app.use("/images",express.static(path.join(__dirname+"/apps/motmon/images")));
@@ -26,7 +33,9 @@ app.get("/api/task/deepthought",(rq,rs)=>{rs.sendFile(__dirname+"/json/deepthoug
 app.get("/js/tasks/deepthought/component.js",(rq,rs)=>{rs.sendFile(path.join(__dirname,"/apps/Task/deepthought/ind.js")); });
 app.get("/js/tasks/deepthought_1/component.js",(rq,rs)=>{rs.sendFile(path.join(__dirname,"/apps/Task/deepthought_1/ind.js")); });
 
-
+app.get("/atcop",(req,res)=>{res.sendFile(__dirname+"/apps/atcop/index.html"); });
+app.get("/atcop/param",(req,res)=>{res.end(JSON.stringify(PARAMATCOP)); });
+app.post("/atcop/param",(req,res)=>{let d=req.body;PARAMATCOP.angle=d.angle;PARAMATCOP.torque=d.torque;res.end(JSON.stringify(d)); });
 
 //////////////////////////
 //////////////////////////
