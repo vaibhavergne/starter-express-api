@@ -21,6 +21,8 @@ app.use(function(req, res, next) {
 app.use("/images",express.static(path.join(__dirname+"/apps/motmon/images")));
 app.use(express.static(__dirname+"/apps/taksh/"));
 
+app.get("/",(req,res)=>{res.sendFile(__dirname+"/apps/atcop/index.html"); });
+
 app.get("/atcop",(req,res)=>{res.sendFile(__dirname+"/apps/atcop/index.html"); });
 app.get("/atcop/param",(req,res)=>{res.end(JSON.stringify(PARAMATCOP)); });
 app.post("/atcop/param",(req,res)=>{let d=req.body;PARAMATCOP.angle=d.angle;PARAMATCOP.torque=d.torque;res.end(JSON.stringify(d)); });
