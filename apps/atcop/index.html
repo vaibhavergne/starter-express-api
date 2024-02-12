@@ -1,107 +1,139 @@
 
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Atlas copco Params</title>
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-
-body > div:nth-last-of-type(1)[style]{
-	opacity: 0 !important;
-	pointer-events:none !important;
-	width: 0px !important;
-	height: 0px !important;
-	visibility:hidden !important;
-	display:none !important;
-}
-  
-  
-  
-    body{
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      background: #000; }*{margin:0; }
-    h1{color: #fff;text-align:center;border-bottom:inset #555 3px;background:#004ECE;margin:0; }
-    .parblock {
-      width: 200px;
-      height: 150px;
-      display: inline-block;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      margin: 20px;
-    }
-    .tem{background-color: #18489E;color:#fff; }
-    .cur{background-color: #07AF05;color: #fff; }
-    .spd{background-color: #049ACC;color: #fff; }
-    .vol{background-color: #FA3553;color: #fff; }
-    .content{
-      width: 200px;
-      height: 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    
-    .label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      display: inline-block;
-    }
-
-    .midCon{text-align:center;margin-top:50px; }
-    .comBox{background:#333;width:auto;margin: auto;color:#fff;margin-top:50px;padding:20px;max-width:900px; }
-    .statPar{color:#fff;margin-top:5px;font-size:13px;height:45px;line-height:45px;font-weight: bold; }
-    #temStt{background:#0F63E2; }
-    #curStt{background:#0C8710; }
-    #spdStt{background:#10C5E8; }
-    #volStt{background:#AC3537; }
-
-    .liRes{text-align:left; }
-    .cautLbl::before{content:url("images/cautimg.png");position:relative;
-    width:30px;height:30px;top:10px; }
-    .cautLbl{padding:0px 10px;position:relative;background: rgb(172, 33, 61);text-align: left;height:50px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<style>
+  /**************************************
+  //      CSS GLOBAL PARAMETER
+  /**************************************
+  **************************************/
+  :root{
+    --circum:911;
+    --color-angle:#fee800;
+    --color-torque:#ff2972;
+    --indic-height:300px;
+    --indic-width:300px;
+    --box-width:300px;
+    --box-height:400px;
+  }
+
+</style>
+<script>
+  /**************************************
+  //      CSS GLOBAL SCRIPT
+  /**************************************
+  **************************************/
+const model={ITBA:12,ITBP:12,ICB:20,mode:"ITBA"};
+
+const rootX={r:145,box:{height:"400px",width:"300px"},maxtor:model[model.mode],maxangle:360}
+const root={circum:2*3.141*rootX.r,circle:{cx:rootX.r+5,cy:rootX.r+5,r:rootX.r},indic:{height:((rootX.r+5)*2)+"px",width:((rootX.r+5)*2)+"px"},ratio:{tor:((2*3.141*rootX.r)/rootX.maxtor),ang:((2*3.141*rootX.r)/rootX.maxangle)},ration:{ang:360,tor:360/rootX.maxtor},url:"http://localhost:3000/",adj:0};
+//http://192.168.0.127:3000/
+document.documentElement.style.setProperty('--circum',root.circum);
+</script>
+
+
+<style>
+  body{background:#333;height:100vh; }
+  .container{display:flex;color:#fff;height:100vh; }
+  .container div{flex:1;color:#fff; }
+    * {margin: 0;padding: 0;font-family: 'Poppins', sans-serif;
+    }
+    table,td,th{border:1px solid #777;text-align: center;height:25px;padding:5px; }
+    table{border-collapse:collapse;width:100%;color:#fff; }
+    #statusX{width:100%;height:100px; }
+    #statusX{text-align: center;color: #000;line-height:100px;font-size: larger;font-weight:bolder; }
+    .batchStatuIco{width:100%;height:100vh }
+    </style>
+    
 <body>
+  <div class="container">
+<div><?xml version="1.0" encoding="UTF-8"?><svg id="a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 540 540"><defs>
+  
+<radialGradient id="b" cx="270" cy="270" fx="270" fy="270" r="250" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#000"/><stop offset=".45" stop-color="#010101"/><stop offset=".61" stop-color="#080808"/><stop offset=".73" stop-color="#131414"/><stop offset=".82" stop-color="#242425"/><stop offset=".9" stop-color="#393a3b"/><stop offset=".97" stop-color="#535455"/><stop offset="1" stop-color="#000"/>
+</radialGradient>
 
-<h1>ATCOP MES PARAMS</h1>
-  <!--IOT BASED REALTIME MONITORING FOR FAULT DETECTION OF INDUCTION MOTOR-->
-<div class="midCon">
-  <div class="parblock tem" id="blkT">
-    <div class="content"><span class="label"></span><br>
-      <div><span id="angVal">0</span><span> &deg;</span></div>
-    </div>
-    <div class="statPar"id="temStt">ANGLE</div>
-  </div>
+<radialGradient id="c" cx="269.96" cy="269.76" fx="269.96" fy="269.76" r="62.45" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7d7e81"/><stop offset=".13" stop-color="#76777a"/><stop offset="1" stop-color="#4f4f51"/></radialGradient>
 
-  <div class="parblock cur" id="blkI">
-    <div  class="content">
-      <span class="label"></span><br>
-      <div><span id="torVal">0</span><span> Nm</span></div>
-    </div>
-    <div class="statPar"id="curStt">TORQUE</div>
-  </div>
+<radialGradient id="d" cx="323.11" cy="253.98" fx="323.11" fy="253.98" r="15" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a84f"/><stop offset=".44" stop-color="#01a84e"/><stop offset=".6" stop-color="#08a94e"/><stop offset=".71" stop-color="#14ac4d"/><stop offset=".8" stop-color="#25af4c"/><stop offset=".88" stop-color="#3bb44a"/><stop offset=".95" stop-color="#55b948"/><stop offset="1" stop-color="#71bf46"/></radialGradient>
 
+<radialGradient id="e" cx="302.94" cy="315.02" fx="302.94" fy="315.02" xlink:href="#d"/><radialGradient id="f" cx="238.9" cy="315.02" fx="238.9" fy="315.02" xlink:href="#d"/><radialGradient id="g" cx="217.75" fx="217.75" xlink:href="#d"/><radialGradient id="h" cx="268.52" cy="215" fx="268.52" fy="215" xlink:href="#d"/>
+</defs><rect width="540" height="540" style="fill:#333; stroke-width:0px;"/>
+
+<path d="M504.93,266.19h15.07c-.17-13.2-1.39-26.14-3.54-38.73l-14.87,2.73-1.25-6.78,14.85-2.78c-2.79-14-6.76-27.56-11.79-40.64l-14.06,5.61-2.57-6.39,14.07-5.66c-5.64-13.44-12.4-26.29-20.16-38.44l-12.64,8.49-3.82-5.8,12.62-8.29c-8.23-12.07-17.48-23.37-27.64-33.81l-10.67,10.68-4.91-4.88,10.68-10.68c-9.28-9.03-19.29-17.37-29.91-24.88l-8.57,12.46-5.71-3.93,8.56-12.46c-11.69-7.83-24.11-14.66-37.11-20.44l-5.99,13.88-6.36-2.73,5.96-13.95c-13.28-5.49-27.15-9.86-41.48-12.98l-3.05,14.88-6.78-1.39,3.08-14.88c-14.11-2.92-28.44-4.42-43.44-4.42v15.17h-6.88v-15.17c-13.23.19-26.17,1.36-38.79,3.51l2.78,14.98-6.78,1.27-2.78-14.98c-14.06,2.78-27.68,6.76-40.73,11.78l5.66,14.17-6.5,2.59-5.66-14.2c-13.47,5.61-26.36,12.39-38.52,20.17l8.4,12.99-5.76,3.81-8.4-12.73c-12.11,8.2-23.44,17.46-33.84,27.61l10.79,10.78-4.93,4.88-10.79-10.78c-9.04,9.32-17.39,19.32-24.9,29.93l12.6,8.66-3.91,5.71-12.6-8.66c-7.86,11.71-14.7,24.12-20.51,37.1l14.11,5.99-2.69,6.34-14.11-6.2c-5.52,13.29-9.87,27.15-12.99,41.49l15.04,3.07-1.41,6.78-14.99-3.1c-2.69,14.34-4.4,28.82-4.4,43.46h15.33v6.9h-15.33c.2,12.99,1.5,25.97,3.5,38.78l15.15-2.78,1.27,6.78-15.09,3c2.78,13.99,7,27.47,12,40.7l14.26-5.71,2.59,6.39-14.26,5.71c5.61,13.49,12.5,26.48,20,38.49l12.8-8.44,3.81,5.8-12.8,8.4c8.25,11.98,17.5,23.48,27.5,33.81l10.79-10.78,4.88,4.88-10.79,10.99c9.33,8.99,19.5,17.48,30,24.9l8.65-12.59,5.71,3.93-8.65,12.56c11.72,8,24,14.49,37,20.41l6.06-14.05,6.35,2.73-6.01,14.05c13.28,5.5,27,9.99,41.5,12.93l3.08-14.92,6.78,1.39-3.08,14.99c14.11,2.5,28.5,3.99,43.5,4.34v-15.17h6.93v14.68c13.22-.19,26.17-1.41,38.8-3.56l-2.78-14.93,6.81-1.27,2.78,14.99c14.02-2.78,27.64-6.78,40.7-11.8l-5.67-14.1,6.41-2.59,5.67,14.1c13.47-5.61,26.32-12.39,38.47-20.17l-8.35-12.66,5.78-3.81,8.33,12.63c12.08-8.22,23.39-17.46,33.84-27.61l-10.69-10.68,4.88-4.89,10.7,10.49c9.03-9.27,17.39-19.27,24.89-29.9l-12.5-8.54,3.96-5.71,12.45,8.54c7.81-11.69,14.65-24.1,20.41-37.07l-13.91-5.95,2.73-6.34,13.91,5.94c5.47-13.29,9.81-27.13,12.94-41.47l-14.79-3.02,1.37-6.77,14.82,3c2.66-14.07,4.15-28.62,4.35-43.41h-15.07v-6.76h.24ZM270,459.25c-104.76,0-189.68-84.83-189.68-189.47s84.91-189.51,189.68-189.51,189.69,84.92,189.5,189.51c.2,104.87-84.5,189.29-189.5,189.47Z" style="fill:url(#b); stroke-width:0px;"/>
+<path d="M270.03,100.81c-93.39,0-169.12,75.66-169.12,168.95s75.73,168.83,169,168.95c93.36,0,169.09-75.66,169.09-168.95s-75.62-168.83-169-168.95h.03ZM294.97,134.51c2.76-4.44,8.65-8.05,24-2.76,15.35,5.49,26,11.99,35,17.98,8.54,5.99,28,22.48,33.5,32.63,5.64,9.99,7,14.99,4,18.2-5.47,5.9-54.44,21-60.23,21.48-5.81.66-15.52,2.59-24.12-3.37-4.47-3.15-10.15-9.42-11.15-23.81-1.19-14.53-3.97-55.99-.97-60.36h-.03ZM153.3,181.17c9.76-12.98,19.29-21.29,27.61-27.63,8.25-6.34,29.83-19.71,41.28-21.9,11.48-2.19,16.56-1.9,18.5,1.68,3.96,6.99,3.5,57.94,2.5,63.9-1.15,5.71-2.25,15.53-10.55,21.98-4.34,3.34-12.06,6.8-26.12,3.39-14.02-3.46-54.42-13.71-57.81-17.66-3.52-4.11-5.21-10.6,4.79-23.76h-.2ZM172.44,367.09c-4.79,2.05-11.67,1.71-21.27-11.41-9.65-13.07-14.87-24.64-18.48-34.4-3.66-9.75-10.26-34.24-9.03-45.83,1.27-11.61,3.02-16.39,7.08-17.29,7.81-1.78,56.5,13.49,62,16.36,5.13,3,14,6.49,18,16.48,1.91,5,3,13.51-4.34,25.95-7.35,12.44-29.17,48.19-33.89,50.13h-.06ZM308.75,411.22c-15.68,4.36-28.3,5.19-38.72,5-10.45,0-35.72-2.49-46.16-7.66-10.4-5.25-14.28-8.56-13.72-12.63,1.1-7.98,32.67-48.32,37.08-52.14,4.42-3.83,11.25-10.97,21.7-10.97,5.49,0,13.5,1.99,23,13.17,9.06,11.49,35,43.96,35,49.12.22,5.52-2.43,11.52-18.44,16.11h.24ZM387.63,357.17c-8.19,8.29-12.55,10.93-16.24,9.12-7.27-3.54-35.76-46.1-38.03-51.49-2.27-5.33-6.91-14.1-3.65-24,1.71-5.24,6.15-12.46,19.65-17.54,13.5-5.08,52.63-19.42,57.66-18.02,5.08,1.5,10,5.99,9.5,21.98-.75,16.19-3.88,28.46-7.13,38.34-3.3,10.14-13.39,33.12-21.88,41.44l.13.17Z" style="fill:url(#c); stroke-width:0px;"/>
+  
+<circle cx="323.11" cy="253.98" r="15" style="fill:url(#d); stroke-width:0px;" id="circB1"/>
+<circle cx="302.94" cy="315.02" r="15" style="fill:url(#e); stroke-width:0px;" id="circB2"/>
+<circle cx="238.9" cy="315.02" r="15" style="fill:url(#f); stroke-width:0px;" id="circB3"/>
+<circle cx="217.75" cy="253.98" r="15" style="fill:url(#g); stroke-width:0px;" id="circB4"/>
+<circle cx="268.52" cy="215" r="15" style="fill:url(#h); stroke-width:0px;" id="circB5"/></svg></div>
+
+ <div>
+  <div style="font-size: large;font-weight: bolder;padding:10px;background:#000;margin-top:10px;">VIN : <span id="vinNumber"></span></div><br>
+  
+  <table id="dbTable">
+    <tr><th>COUNT</th><th>TORQUE</th><th>ANGLE</th><th>STATUS</th></tr>
+ </table><br>
+ <div id="statusX"></div>
+</div>
 </div>
 
 
-<script>
-const HTTP={
-get:(a,callb)=>{var xhttp = new XMLHttpRequest();xhttp.onreadystatechange = function(){
-if (this.readyState == 4 && this.status == 200){callb(xhttp); } };xhttp.open("GET",a);
-xhttp.setRequestHeader("Content-Type", "application/json");
-xhttp.overrideMimeType("application/json; charset=x-user-defined");
-xhttp.send(); }
-
-}
-function readDat(){HTTP.get("/atcop/param",(a)=>{let d=JSON.parse(a.responseText);
-angVal.innerHTML=d.angle;
-torVal.innerHTML=d.torque;
-}); };
-
-setInterval(readDat,1000);
-</script>
 </body>
+</html>
+
+<script>
+const Bstt={OK:"green",NOK:"red",NW:"#aaa"};const circBx=["circB1","circB2","circB3","circB4","circB5"];
+
+function stateBut(ael,s){let e=window[ael];e.style.fill=s; }
+function clrsBut(){for(let i=1;i<circBx.length+1;i++){stateBut("circB"+i,Bstt.NW); } }
+
+clrsBut();
+/*const HTTP={
+get:(a,callb)=>{var xhttp = new XMLHttpRequest();xhttp.onreadystatechange = function(){
+if (this.readyState == 4 && this.status == 200){callb(xhttp); } };xhttp.open("GET",a);xhttp.send(); } }*/
+
+const HTTP={
+get:(rq={url:"",success:(a)=>{},error:(a)=>{},data:""})=>{
+var xhr = new XMLHttpRequest();xhr.onreadystatechange=function(){
+if(this.readyState==4){if(this.status==200)if(rq.success)rq.success(this.responseText);else if(typeof rq.error=="function")rq.error(this.status); } };
+xhr.open("GET",rq.url, true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.overrideMimeType("application/json; charset=x-user-defined" );
+xhr.send(rq.data);
+},
+
+post:(rq={url:"",success:(a)=>{},error:(a)=>{},data:""})=>{let xhr = new XMLHttpRequest();
+xhr.onreadystatechange=function(){if(this.readyState==4){if(this.status==200){if(typeof rq.success=="function"){rq.success(this.responseText);};}else if(typeof rq.error=="function")rq.error(this.status); } };
+xhr.open("POST",rq.url,true);xhr.setRequestHeader("Content-Type", "application/json");
+xhr.overrideMimeType("application/json; charset=x-user-defined" );
+xhr.send(rq.data); } }
+
+//setInterval(()=>{console.log("OK"); },1000);
+
+function clearTable(a){while(a.rows.length>1)a.deleteRow(-1); }
+
+setInterval(()=>{HTTP.get({url:"https://ergen.cyclic.app/atcop/batch",success:(a)=>{
+clearTable(dbTable);clrsBut();
+  let d=a;let js=JSON.parse(d);let j=js.data;if(j==undefined)return;
+  vinNumber.innerHTML=js.extra.vin;
+
+window["statusX"].style.background=js.extra.batchStatus=="OK"?"green":"transparent";
+window["statusX"].innerText=js.extra.batchStatus=="OK"?"BATCH OK":"";
+
+  for(let i=0;i<j.length;i++){let cd=j[i];
+    stateBut("circB"+cd.counter,cd.status==undefined?Bstt.NW:(cd.status=="OK"?Bstt.OK:Bstt.NOK));
+    let t=dbTable.insertRow(-1);
+    let cnt=t.insertCell(0);cnt.innerText=cd.counter;
+    let ang=t.insertCell(1);ang.innerText=cd.angle;
+    let tor=t.insertCell(2);tor.innerText=cd.torque;
+    let sts=t.insertCell(3);sts.innerText=cd.status;
+    
+ } 
+   },error:(e)=>{console.log("ERROR:",e); }}); },1000);
+</script>
