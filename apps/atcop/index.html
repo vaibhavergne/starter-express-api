@@ -130,8 +130,8 @@ window["statusX"].innerText=js.extra.batchStatus=="OK"?"BATCH OK":"";
     stateBut("circB"+cd.counter,cd.status==undefined?Bstt.NW:(cd.status=="OK"?Bstt.OK:Bstt.NOK));
     let t=dbTable.insertRow(-1);
     let cnt=t.insertCell(0);cnt.innerText=cd.counter;
-    let ang=t.insertCell(1);ang.innerText=cd.angle;
-    let tor=t.insertCell(2);tor.innerText=cd.torque;
+    let tor=t.insertCell(1);tor.innerText=cd.torque;
+    let ang=t.insertCell(2);ang.innerText=cd.angle;
     let sts=t.insertCell(3);sts.innerText=cd.status;
     
  } 
